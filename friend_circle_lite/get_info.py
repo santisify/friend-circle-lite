@@ -293,9 +293,9 @@ def fetch_and_process_data(json_url, specific_RSS=[], count=5):
         logging.error(f"无法获取链接：{json_url} ：{e}", exc_info=True)
         return None
 
-    # Only get friends from child which have id_name = "cf-links"
+    # Only get friends from child which have id_name = "cf-links" or "astro-theme-pure"
     for category in friends_data['friends']:
-        if category['id_name'] == "cf-links":
+        if category['id_name'] == "cf-links" or category['id_name'] == "astro-theme-pure":
             friends_data = category['link_list']
             break
 
